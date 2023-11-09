@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+//   webpack: (config) => {
+//     config.resolve.fallback = {
+//       "mongodb-client-encryption": false,
+//       aws4: false,
+//     };
 
-module.exports = nextConfig
+//     return config;
+//   },
+  images: { domains: ["tailwindui.com"] },
+};
+
+module.exports = nextConfig;
