@@ -1,8 +1,9 @@
 import DeleteProduct from "@/utilities/DeleteProduct";
 import Link from "next/link";
+import { baseUrl } from "@/utilities/db";
 
 const userDetails = async (email) => {
-  let data = await fetch(`http://localhost:3000/api/users/${email}`, {
+  let data = await fetch(`${baseUrl}/api/users/${email}`, {
     cache: "no-cache",
   });
   data = await data.json();

@@ -1,4 +1,5 @@
 "use client";
+import { baseUrl } from "@/utilities/db";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -14,7 +15,7 @@ export default function Page(props) {
   // console.log(id);
   useEffect(() => {
     const userData = async () => {
-      let data = await fetch(`http://localhost:3000/api/users/${id}`);
+      let data = await fetch(`${baseUrl}/api/users/${id}`);
 
       data = await data.json();
       // console.log(data.result);
@@ -33,7 +34,7 @@ export default function Page(props) {
     e.preventDefault();
     if (newPassword == confirmNewPassword) {
       let password = newPassword;
-      let data = await fetch(`http://localhost:3000/api/users/${id}`, {
+      let data = await fetch(`${baseUrl}/api/users/${id}`, {
         method: "PUT",
         body: JSON.stringify({ password }),
       });

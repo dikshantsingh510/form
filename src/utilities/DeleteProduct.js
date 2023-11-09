@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { baseUrl } from "./db";
 
 export default function DeleteProduct(props) {
   const router = useRouter();
@@ -10,7 +11,7 @@ export default function DeleteProduct(props) {
 
   
 
-    let response = await fetch(`http://localhost:3000/api/users/${props.email}`, {
+    let response = await fetch(`${baseUrl}/api/users/${props.email}`, {
       method: "delete",
     });
     // console.log(response);

@@ -1,4 +1,5 @@
 "use client"
+import { baseUrl } from "@/utilities/db";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -10,7 +11,7 @@ export default function Page() {
   const resetPassword = async (e) => {
     e.preventDefault();
 
-    let data = await fetch(`http://localhost:3000/api/users/${email}`);
+    let data = await fetch(`${baseUrl}/api/users/${email}`);
     data = await data.json();
     if (data.success) {
         // console.log(data.result.email);

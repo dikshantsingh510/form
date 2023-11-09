@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
+import { baseUrl } from "@/utilities/db";
 
 
 
@@ -15,7 +16,7 @@ export default function Page() {
 
   const registerUser = async (e) => {
     e.preventDefault();
-    let result = await fetch(`http://localhost:3000/api/users`, {
+    let result = await fetch(`${baseUrl}/api/users`, {
       method: "POST",
       body: JSON.stringify({ name, email, password }),
     });

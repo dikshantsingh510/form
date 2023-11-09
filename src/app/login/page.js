@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { baseUrl } from "@/utilities/db";
 
 export default function Page() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function Page() {
   const loginUser = async (e) => {
     e.preventDefault();
     // console.log(email, password);
-    let data = await fetch(`http://localhost:3000/api/users/${email}`);
+    let data = await fetch(`${baseUrl}/api/users/${email}`);
     data = await data.json();
     if (data.success) {
       let urlParams = btoa(data.result.email)
